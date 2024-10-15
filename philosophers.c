@@ -27,15 +27,16 @@ void print_initialized_data(t_data *data)
 
 int main(int ac, char **av)
 {
-    t_data data; 
-    if (ac == 5 || ac == 6)
+    t_data data;
+    
+    if (ac == 5 || ac == 6) 
     {
         parse_input(&data, av);
         data_init(&data);
         // print_initialized_data(&data);
         dinner_start(&data);
-        // clean(&table);
+        clean(&data);
     } else
-        error_exit("Wrong input:\n" YELLOW "Enter like this ./philo 5 800 200 200 [5]" RST);
+        error_exit("Wrong input:\n" YELLOW "\tEnter like this ./philo 5 800 200 200 [5]" RST);
     return 0;
 }

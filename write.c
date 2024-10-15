@@ -36,7 +36,7 @@ void    write_status(t_philo_status status, t_philo *philo, bool debug)
             printf(WHITE"%-6ld"RST" %d is sleeping\n", elapsed, philo->philo_id);
         else if (status == THINKING && !simulation_finished(philo->data))
             printf(WHITE"%-6ld"RST" %d is thinking\n", elapsed, philo->philo_id);
-        else if (status == DIED && !simulation_finished(philo->data))
+        else if (status == DIED)
             printf(WHITE"%-6ld"RST" %d died\n", elapsed, philo->philo_id);
     }
     mutex_handel(&philo->data->write_mutex, UNLOCK);

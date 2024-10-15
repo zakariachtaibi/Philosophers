@@ -22,7 +22,7 @@
 #define CYAN        "\033[36m"
 #define WHITE       "\033[37m"
 
-# define DEBUG_MODE 1
+# define DEBUG_MODE 0
 
 typedef enum e_status
 {
@@ -89,16 +89,16 @@ typedef struct s_data
     t_philo         *philos;
 } t_data;
 
-//error
+// error
 void    error_exit(const char *error);
-//parsing
+// parsing
 void    parse_input(t_data *data, char **av);
-//handel
+// handel
 void    mutex_handel(pthread_mutex_t *mutex, t_code code);
 void    pthread_handel(pthread_t *thread, void *(*func)(void *), void *data, t_code code);
-//init
+// init
 void    data_init(t_data *data);
-//setter & getters
+// setter & getters
 void    set_bool(pthread_mutex_t *mutex, bool *dest,bool value);
 bool    get_bool(pthread_mutex_t *mutex, bool *value);
 void    set_long(pthread_mutex_t *mutex, long *dest,long value);
@@ -110,10 +110,15 @@ long    gettime(t_time time);
 void    precise_usleep(long usec, t_data *data);
 // write_status
 void    write_status(t_philo_status status, t_philo *philo, bool debug);
-
+// dinner
 void    dinner_start(t_data *data);
 bool    all_threads_running(pthread_mutex_t *mutex, long *threads, long philo_nbr);
 void    increase_long(pthread_mutex_t *mutex, long *value);
-
+void    thinking(t_philo *philo, bool pre_simulation);
+// monitor
 void    *monitor_dinner(void *data);
+// clean
+void    clean(t_data *data);
+
+void    de_synchronize_philos(t_philo *pihlo);
 #endif

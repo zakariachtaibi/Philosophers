@@ -31,6 +31,7 @@ SRCS = 	philosophers.c \
 		synchro_utils.c\
 		write.c\
 		monitor.c\
+		clean.c\
 
 
 

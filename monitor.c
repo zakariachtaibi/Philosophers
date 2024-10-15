@@ -32,8 +32,7 @@ void    *monitor_dinner(void *data)
             if (philo_died(table->philos + i))
             {
                 set_bool(&table->data_mutex, &table->end_simulation, true);
-                // printf(WHITE"%-6ld"RST" %d died\n", gettime(MILLISECOND) - table->start_simulation, table->philos->philo_id);
-                // write_status(DIED, table->philos + i, DEBUG_MODE);
+                write_status(DIED, table->philos + i, DEBUG_MODE);
             }
         }
     }

@@ -47,8 +47,6 @@ void parse_input(t_data *data, char **av)
     data->time_to_die = ft_atol(av[2]);
     data->time_to_eat = ft_atol(av[3]);
     data->time_to_sleep = ft_atol(av[4]);
-
-
     if (data->philo_nbr <= 0 || data->philo_nbr > 200)
         error_exit("Number of philosophers must be between 1 and 200");
     if (data->time_to_die < 60 || data->time_to_eat < 60 || data->time_to_sleep < 60)
@@ -56,8 +54,8 @@ void parse_input(t_data *data, char **av)
     data->time_to_die *= 1000;
     data->time_to_eat *= 1000;
     data->time_to_sleep *= 1000;
-
-    if (av[5]) {
+    if (av[5])
+    {
         data->nbr_limit_meals = ft_atol(av[5]);
         if (data->nbr_limit_meals <= 0)
             error_exit("Number of times each philosopher must eat should be positive");
